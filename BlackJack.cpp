@@ -66,21 +66,21 @@ int main() {
         cout << "Bun venit la jocul de Blackjack!" << endl;
 
         while (true) {
-            cout << "\nMâna ta: ";
+            cout << "\nMana ta: ";
             for (int card : playerHand) {
                 cout << card << " ";
             }
-            cout << "Valoare mână: " << calculateHandValue(playerHand) << endl;
+            cout << "Valoare mana: " << calculateHandValue(playerHand) << endl;
 
             // Verificăm dacă jucătorul a depășit 21
             if (calculateHandValue(playerHand) > 21) {
-                cout << "Ai depășit 21! Ai pierdut!" << endl;
+                cout << "Ai depasit 21! Ai pierdut!" << endl;
                 dealerWins++;
                 break;
             }
 
             // Jucătorul decide dacă să mai ia o carte sau să se oprească
-            cout << "Vrei să iei o carte suplimentară? (da/nu): ";
+            cout << "Vrei să iei o carte suplimentara? (da/nu): ";
             string choice;
             cin >> choice;
 
@@ -97,43 +97,43 @@ int main() {
             dealerHand.push_back(getRandomCard());
         }
 
-        cout << "\nMâna dealer-ului: ";
+        cout << "\nMana dealer-ului: ";
         for (int card : dealerHand) {
             cout << card << " ";
         }
-        cout << "Valoare mână: " << calculateHandValue(dealerHand) << endl;
+        cout << "Valoare mana: " << calculateHandValue(dealerHand) << endl;
 
         // Determinăm câștigătorul
         int playerValue = calculateHandValue(playerHand);
         int dealerValue = calculateHandValue(dealerHand);
 
         if (playerValue > 21) {
-            cout << "Dealer-ul câștigă! Ai depășit 21." << endl;
+            cout << "Dealer-ul castiga! Ai depasit 21." << endl;
             dealerWins++;
         } else if (dealerValue > 21) {
-            cout << "Tu câștigi! Dealer-ul a depășit 21." << endl;
+            cout << "Tu castigi! Dealer-ul a depasit 21." << endl;
             playerWins++;
         } else if (playerValue > dealerValue) {
-            cout << "Tu câștigi! Felicitări!" << endl;
+            cout << "Tu castigi! Felicitari!" << endl;
             playerWins++;
         } else if (playerValue < dealerValue) {
-            cout << "Dealer-ul câștigă!" << endl;
+            cout << "Dealer-ul castiga!" << endl;
             dealerWins++;
         } else {
-            cout << "Este remiză!" << endl;
+            cout << "Este remiza!" << endl;
         }
 
         // Întrebăm jucătorul dacă dorește să mai joace o rundă
-        cout << "Dorești să mai joci o rundă? (da/nu): ";
+        cout << "Doresti să mai joci o runda? (da/nu): ";
         string playAgain;
         cin >> playAgain;
 
         if (playAgain != "da") {
             clearConsole();
-            cout << "La revedere! La următoarea dată!" << endl;
+            cout << "La revedere! La urmatoarea data!" << endl;
             cout << "Scorul final:" << endl;
-            cout << "Runde câștigate de tine: " << playerWins << endl;
-            cout << "Runde câștigate de dealer: " << dealerWins << endl;
+            cout << "Runde castigate de tine: " << playerWins << endl;
+            cout << "Runde castigate de dealer: " << dealerWins << endl;
             break;
         }
     }
